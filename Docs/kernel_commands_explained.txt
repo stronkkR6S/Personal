@@ -1,0 +1,148 @@
+
+# Kernel Configuration and Compilation Commands Explained (Gentoo-focused)
+
+## 1. Install new kernel source
+# This installs the latest gentoo-sources (or your preferred kernel source)
+sudo emerge -av gentoo-sources
+
+## 2. Go to the new kernel source directory
+cd /usr/src/linux
+
+## 3. Copy previous kernel config file
+# Option A: From running system
+zcat /proc/config.gz > .config
+
+# Option B: From installed boot config
+cp /boot/config-<old-version> .config
+# Example:
+cp /boot/config-6.14.8-gentoo .config
+
+## 4. Update config to match new kernel options
+make olddefconfig
+# - This updates the config file with any new kernel options, using defaults.
+
+## 5. (Optional) Minimize config to current system's loaded modules
+make localmodconfig
+# - Interactive (asks about drivers not currently loaded)
+# - To auto-confirm all prompts:
+yes "" | make localmodconfig
+
+## 6. Open menuconfig to manually change options
+make menuconfig
+# - Use ncurses GUI to customize kernel options
+# - Useful if you want to enable/disable specific features
+
+## 7. Compile the kernel
+make -j$(nproc)
+# - Compiles the kernel using all CPU cores
+
+## 8. Install modules
+make modules_install
+# - Installs kernel modules to /lib/modules/<version>
+
+## 9. Install the kernel
+make install
+# - Copies kernel image and System.map to /boot
+# - May auto-generate /boot/grub/grub.cfg if using grub-mkconfig
+
+## 10. (Optional) Generate initramfs (if needed)
+# If you use dracut:
+dracut --force
+
+# If you use genkernel:
+genkernel initramfs
+
+# If you use mkinitcpio (rare in Gentoo):
+mkinitcpio -p linux
+
+## 11. (Optional) Set default boot entry in GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+## 12. Reboot into new kernel
+reboot
+
+## Notes:
+- Always run `make olddefconfig` after copying an old .config to a new kernel tree.
+- Use `make localmodconfig` only if you want a minimal, hardware-specific config.
+- You can backup .config files for future use:
+  cp .config ~/kernel-configs/config-6.16.0
+
+# Extra Kernel Management Commands and Examples
+
+## View current running kernel version
+uname -r
+
+## View currently loaded modules
+lsmod
+
+## Get info about a specific module
+modinfo <module_name>
+# Example:
+modinfo amdgpu
+
+## Load a module manually
+sudo modprobe <module_name>
+
+## Remove a module manually
+sudo modprobe -r <module_name>
+
+## Rebuild all modules (useful after upgrading GCC or glibc)
+emerge -1 @module-rebuild
+
+## List available kernel sources
+eselect kernel list
+
+## Set the active kernel source
+sudo eselect kernel set <number>
+# Example:
+sudo eselect kernel set 2
+
+## Check which kernel source is selected
+eselect kernel show
+
+## Backup current kernel config
+cp /usr/src/linux/.config ~/kernel-configs/config-$(uname -r)
+
+## Enable specific kernel option manually
+# Open menuconfig and search (press '/')
+make menuconfig
+
+## Clean build files (if needed)
+make clean
+# - Removes built object files but keeps .config
+
+make mrproper
+# - Removes everything including .config (be careful!)
+
+## Use defconfig to start from default config
+make defconfig
+# - Good base for generic build (not hardware-optimized)
+
+## Use distro default config (if available)
+make distro_defconfig
+
+## Use allmodconfig to build every driver as module
+make allmodconfig
+
+## Compare old and new .config
+diff -u old_config .config > config_diff.patch
+
+## Kernel build logs
+dmesg -H
+# - View kernel logs after boot (human readable)
+
+journalctl -k
+# - Kernel logs from systemd journals (if using systemd)
+
+## Save logs from kernel compilation
+make -j$(nproc) 2>&1 | tee build.log
+
+## Check CPU architecture
+lscpu
+
+## Check supported hardware
+lspci
+lsusb
+lshw
+hwinfo --short
+

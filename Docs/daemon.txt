@@ -1,0 +1,44 @@
+#!/sbin/openrc-run
+
+name="power-profiles-daemon"
+description="Power Profiles Daemon"
+
+pidfile="/run/power-profiles-daemon.pid"
+command="/bin/sh"
+command_args="-c 'sleep 5; exec /usr/libexec/power-profiles-daemon'"
+command_background=true
+
+start_pre() {
+    checkpath -d /var/lib/power-profiles-daemon
+}
+
+depend() {
+    need dbus localmount
+}
+
+
+ #2nd soln it is better
+
+
+
+#!/sbin/openrc-run
+# Copyright 1999-2023 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="power-profiles-daemon"
+description="Makes power profiles handling available over D-Bus"
+
+pidfile="/run/power-profiles-daemon.pid"
+command="/usr/libexec/power-profiles-daemon"
+command_background=true
+
+depend() {
+    use dbus
+    need localmount
+}
+
+start_pre() {
+    checkpath -d /var/lib/power-profiles-daemon
+        sleep 3
+}
+

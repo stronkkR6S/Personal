@@ -1,0 +1,64 @@
+Then the easy way: just tell OpenRC not to ever mark NetworkManager “inactive.”
+
+In /etc/conf.d/NetworkManager, set:
+
+
+ cat /etc/NetworkManager/NetworkManager.conf 
+───────┬───────────────────────────────────────────────────────────────────────────────────
+       │ File: /etc/NetworkManager/NetworkManager.conf
+───────┼───────────────────────────────────────────────────────────────────────────────────
+   1   │ [main]
+   2   │ hostname-mode=none
+   3   │ 
+───────┴───────────────────────────────────────────────────────────────────────────────────
+
+ Change browser.urlbar.scotchBonnet.enableOverride to false in about:config. 
+
+ PipeWire and Real-Time Audio on Gentoo
+
+1. Real-Time Scheduling (RT):
+
+* PipeWire can use real-time scheduling to improve audio thread priority and reduce latency.
+* By default, it tries to use RT if the user has permissions (usually by being in the `pipewire` group).
+* If RT permissions are not available, PipeWire falls back to using RTKit if installed.
+
+PipeWire Real-Time Audio Check
+------------------------------
+
+Command to check PipeWire threads:
+ps -eLo pid,tid,class,rtprio,pri,ni,cmd | grep pipewire
+
+1. With RT (real-time enabled):
+
+PID   TID  CLASS  RTPRIO  PRI  NI  CMD
+2181  2194 FF     88      128  -   /usr/bin/pipewire
+2188  2192 FF     83      123  -   /usr/bin/pipewire -c pipewire-pulse.conf
+
+- CLASS = FF → FIFO real-time scheduling
+- RTPRIO > 0 → Real-time priority is active
+
+2. Without RT:
+
+PID   TID  CLASS  RTPRIO  PRI  NI  CMD
+2181  2181 TS     -       19   0   /usr/bin/pipewire
+2181  2191 TS     -       19   0   /usr/bin/pipewire
+2187  2187 TS     -       19   0   /usr/bin/pipewire -c pipewire-pulse.conf
+
+- CLASS = TS → Time-sharing (normal)
+- RTPRIO = - → Not using real-time
+
+Conclusion:
+If you see FF and a non-zero RTPRIO for PipeWire threads, real-time audio is active.
+
+3. Enabling RT for your user:
+   usermod -aG pipewire yourusername
+   emerge --ask sys-auth/rtkit   # optional if pipewire group not enough
+
+Recommended: Remove user from `audio` group if not needed:
+usermod -rG audio yourusername
+
+4. Notes:
+
+* PipeWire works fine without RT, but enabling it improves audio responsiveness.
+* RTKit is optional if you already have `pipewire` group mem
+

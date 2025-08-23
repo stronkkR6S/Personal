@@ -1,0 +1,167 @@
+Gentoo Portage + emerge Command Cheat Sheet (With Explanations)
+===============================================================
+
+⚙️ BASIC PACKAGE MANAGEMENT
+---------------------------
+emerge firefox
+    - Install the firefox package and its dependencies.
+
+emerge --update firefox
+emerge -u firefox
+    - Update firefox to the latest version.
+
+emerge --search nano
+emerge -s nano
+    - Search for packages with "nano" in their name.
+
+emerge --searchdesc ssh
+emerge -S ssh
+    - Search for packages with "ssh" in their description.
+
+🔄 SYSTEM MAINTENANCE
+---------------------
+emerge --sync
+    - Sync the Portage tree with the Gentoo repository.
+
+emerge -uDNav @world
+    - Update all installed packages:
+      -u: update
+      -D: deep dependencies
+      -N: new USE flags
+      -a: ask for confirmation
+      -v: verbose output
+
+emerge --depclean
+    - Remove unused packages (careful with this!).
+
+emerge --depclean --pretend
+    - Preview what depclean will remove.
+
+revdep-rebuild
+    - Rebuild broken packages due to missing libraries.
+    - Comes from 'gentoolkit'.
+
+🔍 PACKAGE INFORMATION
+-----------------------
+emerge -pv <package>
+    - Show USE flags, options, and dependencies for a package.
+
+emerge --tree <package>
+    - Display the dependency tree.
+
+emerge -av =category/pkgname
+    - Show all available versions of a package.
+
+emerge =category/pkgname-version
+    - Install a specific version of a package.
+
+🔧 USE FLAG MANAGEMENT
+-----------------------
+less /var/db/repos/gentoo/profiles/use.desc
+    - View global USE flags and their meanings.
+
+less /var/db/repos/gentoo/profiles/use.local.desc
+    - View package-specific USE flags.
+
+Edit /etc/portage/package.use
+    - Set per-package USE flags.
+    Example:
+    net-misc/rsync -acl
+
+🔐 MASKING & UNMASKING
+----------------------
+Edit /etc/portage/package.accept_keywords
+    - Unmask specific versions or unstable packages.
+    Example:
+    =net-wireless/wpa_supplicant-2.10 ~amd64
+
+Edit /etc/portage/package.mask
+    - Mask specific versions.
+    Example:
+    >=sys-kernel/gentoo-sources-6.1
+
+🧩 SLOT & VERSION CONTROL
+-------------------------
+emerge =app-editors/vim-9.0
+    - Install Vim version 9.0
+
+emerge -av =app-editors/vim
+    - Show available versions of Vim
+
+Slots allow installing multiple versions of the same package (e.g., python-3.10 and python-3.11)
+
+🎛️ PROFILE MANAGEMENT
+----------------------
+eselect profile show
+    - Show the current system profile.
+
+eselect profile list
+    - List all available profiles.
+
+eselect profile set <number>
+    - Set a new system profile.
+
+🛠️ USEFUL TOOLS
+----------------
+gentoolkit
+Install with:
+    emerge app-portage/gentoolkit
+
+equery u <package>
+    - Show USE flags.
+
+equery d <package>
+    - Show reverse dependencies (what depends on this).
+
+equery g <package>
+    - Show dependency graph.
+
+eclean (cleanup tool)
+Install with:
+    emerge app-portage/eclean-kernel
+
+eclean distfiles
+    - Remove outdated downloaded source files.
+
+eclean packages
+    - Remove old binary packages.
+
+genlop (build statistics)
+Install with:
+    emerge app-portage/genlop
+
+genlop -l
+    - Show emerge build history.
+
+genlop -t firefox
+    - Show average compile time for firefox.
+
+📦 BINARY PACKAGE MANAGEMENT
+----------------------------
+emerge --buildpkg <package>
+    - Build and keep a binary package while installing.
+
+quickpkg <package>
+    - Create a binary package from an already installed package.
+
+✅ Best Practices
+----------------
+- Always sync before updates:
+    emerge --sync
+
+- Use --ask or --pretend before major changes:
+    emerge -av @world
+    emerge --depclean --pretend
+
+- Rebuild broken packages after updates:
+    revdep-rebuild
+
+- Organize /etc/portage/ into subdirectories:
+    package.use/
+    package.mask/
+    package.accept_keywords/
+
+==============================
+END OF CHEAT SHEET
+==============================
+

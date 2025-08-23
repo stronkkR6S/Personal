@@ -1,0 +1,43 @@
+https://tldp.org/LDP/abs/html/index.html
+https://mywiki.wooledge.org/BashGuide
+we need kernel ~amd64
+dist-kernel ~amd64
+
+
+
+
+
+
+0x0.st Linux Upload Command Cheat Sheet
+Upload File
+curl -F 'file=@/path/to/file' https://0x0.st
+Example
+curl -F 'file=@image.png' https://0x0.st
+Upload Text
+echo "hello world" | curl -F 'file=@-' https://0x0.st
+Upload Text File
+curl -F 'file=@yourfile.txt' https://0x0.st
+Or using cat
+cat yourfile.txt | curl -F 'file=@-' https://0x0.st
+Upload Multiple Files
+curl -F 'file[]=@file1.txt' -F 'file[]=@file2.png' https://0x0.st
+Upload Output of a Command
+ls -la | curl -F 'file=@-' https://0x0.st
+Shell Function (add to ~/.bashrc or ~/.zshrc)
+upload() {
+for file in "$@"; do
+curl -F "file=@$file" https://0x0.st
+done
+}
+Reload shell config
+source ~/.bashrc # or ~/.zshrc
+Function usage
+upload file1.png notes.txt
+Download File
+curl -O https://0x0.st/abc123.png
+Notes
+- Public uploads
+- No delete link
+- Files expire after 30 days of inactivity
+
+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

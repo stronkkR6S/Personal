@@ -1,0 +1,32 @@
+https://cheat.sh/
+https://explainshell.com/
+https://mywiki.wooledge.org/BashGuide
+https://linux.die.net/
+https://github.com/Idnan/bash-guide
+https://www.gnu.org/software/bash/manual/bash.html
+https://tldp.org/LDP/abs/html/index.html
+https://tldp.org/LDP/Bash-Beginners-Guide/html/index.html
+https://www.learn-c.org/
+https://seriouscomputerist.atariverse.com/media/pdf/book/C%20Programming%20Language%20-%202nd%20Edition%20(OCR).pdf
+https://beej.us/guide/bgc/
+https://cppreference.com/
+https://doc.rust-lang.org/stable/
+https://devhints.io/bash
+https://learnxinyminutes.com/
+https://ryanstutorials.net/bash-scripting-tutorial/
+https://www.learnshell.org/
+https://cs50.harvard.edu/x/2025/weeks/0/
+https://jorenar.com/blog/less-known-c#array-pointers
+https://github.com/jflaherty/ptrtut13
+https://helix-nikita-revencos-projects.vercel.app/ #helix
+https://annas-archive.org/
+https://www.odi.ch/prog/kernel-config.php
+https://web.archive.org/web/20180226135953/https://www.dotslashlinux.com/post/the-linux-kernel-configuration-guide-part-1-introduction/
+https://guides.viren070.me/stremio/intro
+https://wallpaperscraft.com/
+https://alphacoders.com/
+https://www.learnc.net/
+GD26AVDM #mathongo test series code
+https://toffeeshare.com/en/ #to share file
+https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html
+https://wallhere.com/

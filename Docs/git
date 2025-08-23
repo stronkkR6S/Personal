@@ -1,0 +1,56 @@
+Git Commands Quick Reference
+
+git init -> Initialize a new Git repository
+
+git status -> Check branch and staged/unstaged changes
+
+git diff -> Show unstaged changes
+
+git diff --staged -> Show staged changes
+
+git add <file> -> Stage file
+
+git add . -> Stage all files
+
+git commit -m "msg" -> Commit staged changes
+
+git reset <file> -> Unstage file
+
+git restore --staged <file> -> Unstage file (new syntax)
+
+git branch -> List local branches
+
+git branch -a -> List all branches
+
+git branch <name> -> Create branch
+
+git checkout <branch> -> Switch branch
+
+git checkout -b <branch> -> Create & switch branch
+
+git branch -d <branch> -> Delete local branch
+
+git push origin --delete <branch> -> Delete remote branch
+
+git merge <branch> -> Merge branch into current
+
+git merge --no-ff <branch> -> Merge with merge commit
+
+git rebase <branch> -> Reapply commits on top
+
+git rm <file> -> Delete file from git & disk
+
+git rm --cached <file> -> Stop tracking file
+
+git push <remote> <branch> -> Push branch to remote
+
+git push -u <remote> <branch> -> Push & set upstream
+
+git pull -> Fetch + merge
+
+git fetch -> Fetch only
+
+git fetch --all --prune -> Cleanup deleted remote branches
+
+git remote -v -> Show remotes
+

@@ -1,0 +1,108 @@
+
+Using 9082453 loops per ms, running every load for 20 seconds
+Benchmarking kernel 6.15.9-xanmod1-dist at datestamp 202508031325
+Comment: 6.15.9-xanmod1-dist
+
+--- Benchmarking simulated cpu of Audio real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  98.0 +/- 123.2    424.0		 100	        100
+Video	  43.0 +/- 48.9     251.0		 100	        100
+X	  40.0 +/- 60.0     531.0		 100	        100
+Burn	  10.0 +/- 10.4      26.0		 100	        100
+Write	  71.0 +/- 132.4    538.0		 100	        100
+Read	  50.0 +/- 62.9     395.0		 100	        100
+Compile	  12.0 +/- 12.9      35.0		 100	        100
+Memload	  75.0 +/- 100.6    386.0		 100	        100
+
+--- Benchmarking simulated cpu of Video real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  48.0 +/- 52.6     481.0		 100	        100
+X	  40.0 +/- 45.3     375.0		 100	        100
+Burn	   9.0 +/- 9.2       44.0		 100	        100
+Write	  46.0 +/- 97.2     664.0		 100	        100
+Read	  84.0 +/- 143.3    617.0		 100	        100
+Compile	 599.0 +/- 3137.3  16691.0		 100	       96.5
+Memload	  97.0 +/- 162.0    991.0		 100	        100
+
+
+
+Using 9081312 loops per ms, running every load for 20 seconds
+Benchmarking kernel 6.16.0-gentoo-SparK at datestamp 202508031340
+Comment: 6.16.0-gentoo-SparK
+
+--- Benchmarking simulated cpu of Audio real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  55.0 +/- 58.7     156.0		 100	        100
+Video	  74.0 +/- 111.8    606.0		 100	        100
+X	  38.0 +/- 47.3     346.0		 100	        100
+Burn	  10.0 +/- 10.3      32.0		 100	        100
+Write	  31.0 +/- 37.1     342.0		 100	        100
+Read	  45.0 +/- 68.9     755.0		 100	        100
+Compile	  11.0 +/- 12.1      20.0		 100	        100
+Memload	  87.0 +/- 118.2    550.0		 100	        100
+
+--- Benchmarking simulated cpu of Video real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  48.0 +/- 52.7     273.0		 100	        100
+X	  43.0 +/- 55.2     544.0		 100	        100
+Burn	3788.0 +/- 7944.8  16679.0		 100	       77.3
+Write	  31.0 +/- 36.1     337.0		 100	        100
+Read	  29.0 +/- 45.6     522.0		 100	        100
+Compile	6564.0 +/- 10465.1 16788.0		 100	       60.7
+Memload	  54.0 +/- 75.0     580.0		 100	        100
+
+
+
+Using 9055640 loops per ms, running every load for 20 seconds
+Benchmarking kernel 6.16.0-tkg-bore at datestamp 202508031410
+Comment: 6.16.0-tkg-bore
+
+--- Benchmarking simulated cpu of Audio real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  49.0 +/- 59.1     393.0		 100	        100
+Video	  58.0 +/- 68.8     451.0		 100	        100
+X	  46.0 +/- 70.7     458.0		 100	        100
+Burn	  10.0 +/- 10.5      38.0		 100	        100
+Write	  31.0 +/- 50.1     342.0		 100	        100
+Read	  41.0 +/- 63.5     416.0		 100	        100
+Compile	  15.0 +/- 16.4      74.0		 100	        100
+Memload	  67.0 +/- 95.1     527.0		 100	        100
+
+--- Benchmarking simulated cpu of Video real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  49.0 +/- 68.1     547.0		 100	        100
+X	  48.0 +/- 75.0     667.0		 100	        100
+Burn	   9.0 +/- 9.5       22.0		 100	        100
+Write	  38.0 +/- 483.8   16691.0		 100	       99.9
+Read	  25.0 +/- 57.2     793.0		 100	        100
+Compile	 841.0 +/- 3724.7  16686.0		 100	         95
+Memload	  55.0 +/- 89.8     635.0		 100	        100
+
+
+
+Using 9061510 loops per ms, running every load for 20 seconds
+Benchmarking kernel 6.16.0-tkg-eevdf at datestamp 202508031702
+Comment: 6.16.0-tkg-eevdf
+
+--- Benchmarking simulated cpu of Audio real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  48.0 +/- 61.4     472.0		 100	        100
+Video	  59.0 +/- 74.7     504.0		 100	        100
+X	  50.0 +/- 67.6     557.0		 100	        100
+Burn	   9.0 +/- 10.1      16.0		 100	        100
+Write	  38.0 +/- 82.6    1031.0		 100	        100
+Read	  39.0 +/- 57.9     448.0		 100	        100
+Compile	  14.0 +/- 15.3      59.0		 100	        100
+Memload	  57.0 +/- 67.2     369.0		 100	        100
+
+--- Benchmarking simulated cpu of Video real time in the presence of simulated ---
+Load	Latency +/- SD (us)  Max Latency   % Desired CPU  % Deadlines Met
+None	  48.0 +/- 74.1     649.0		 100	        100
+X	  32.0 +/- 58.9     597.0		 100	        100
+Burn	   9.0 +/- 9.2       25.0		 100	        100
+Write	  39.0 +/- 484.5   16718.0		 100	       99.9
+Read	  44.0 +/- 98.9     631.0		 100	        100
+Compile	2574.0 +/- 6542.8  16692.0		 100	       84.6
+Memload	  52.0 +/- 82.4     767.0		 100	        100
+
+

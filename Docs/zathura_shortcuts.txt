@@ -1,0 +1,73 @@
+
+ZATHURA DEFAULT KEYBINDINGS
+
+Navigation
+----------
+j / Down        - Scroll down
+k / Up          - Scroll up
+h / Left        - Scroll left
+l / Right       - Scroll right
+Ctrl+d          - Half page down
+Ctrl+u          - Half page up
+gg              - Go to first page
+G               - Go to last page
+<number>G       - Go to page <number>
+:               - Command prompt
+/               - Search forward
+?               - Search backward
+n               - Next search result
+N               - Previous search result
+zz              - Center current page vertically
+zb              - Align bottom
+zt              - Align top
+
+Zoom
+----
++ / =           - Zoom in
+-               - Zoom out
+0               - Zoom to original size
+zI              - Zoom in (stepwise)
+zO              - Zoom out (stepwise)
+zi              - Zoom to fit width
+zo              - Zoom to fit page
+
+Page Navigation
+---------------
+PageDown/Space/f - Next page
+PageUp / b       - Previous page
+J                - Next page (no smooth scroll)
+K                - Previous page (no smooth scroll)
+Tab              - Next index link
+Shift+Tab        - Previous index link
+Return           - Follow selected link
+o                - Open outline/bookmarks
+<                - Go back in jump history
+>                - Go forward in jump history
+
+Viewing Options
+---------------
+s               - Toggle view (fit/page/full)
+r               - Rotate clockwise
+R               - Rotate counter-clockwise
+H               - Highlight (if supported)
+F5              - Reload document
+
+Marks
+-----
+m<char>         - Set mark
+'<char>         - Jump to mark
+
+Miscellaneous
+-------------
+:set <option>   - Set runtime option
+:exec <cmd>     - Run external shell command
+:write          - Save document
+q               - Quit
+Ctrl+c          - Cancel command/search
+
+Mouse
+-----
+Scroll Wheel         - Vertical scroll
+Shift + Scroll       - Horizontal scroll
+Left Click on Link   - Follow link
+Right Click          - Context menu (if any)
